@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selected projects by Jiali Chen — friendly web apps built with care.">
+    <title>Jiali Chen · Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== Navigation ===== -->
+    <header class="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a href="index.html" class="logo">Jiali<span>.</span>Chen</a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="projects.html" class="nav-link is-active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Me</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== Page heading ===== -->
+        <section class="page-hero container">
+            <span class="eyebrow reveal">Things I've built</span>
+            <h1 class="reveal reveal-delay-1">Projects</h1>
+            <p class="reveal reveal-delay-2">
+                A small selection of apps I've designed and built — each one taught me
+                something new. Take a look around!
+            </p>
+        </section>
+
+        <!-- ===== Interactive to-do list ===== -->
+        <section class="section section--tint" id="todo">
+            <div class="container">
+                <span class="eyebrow reveal">Interactive demo</span>
+                <h2 class="section-title reveal reveal-delay-1">My To-Do List</h2>
+                <p class="section-lead reveal reveal-delay-2">
+                    A tiny task tracker I built right on this page. Pick a date on the
+                    calendar, jot down what you want to do, and check things off as you go.
+                    It even remembers your list next time you visit.
+                </p>
+
+                <div class="todo-app reveal reveal-delay-2">
+                    <div class="todo-sidebar">
+                        <div class="todo-calendar" id="todo-calendar">
+                            <div class="todo-cal-head">
+                                <button type="button" class="todo-cal-nav" data-dir="prev" aria-label="Previous month">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                                </button>
+                                <span class="todo-cal-title" id="todo-cal-title">September 2026</span>
+                                <button type="button" class="todo-cal-nav" data-dir="next" aria-label="Next month">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                                </button>
+                            </div>
+                            <table class="todo-cal-grid" role="grid" aria-label="Pick a date">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S</th><th scope="col">M</th><th scope="col">T</th><th scope="col">W</th><th scope="col">T</th><th scope="col">F</th><th scope="col">S</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="todo-cal-body"></tbody>
+                            </table>
+                        </div>
+
+                        <form class="todo-form" id="todo-form">
+                            <label class="todo-label" for="todo-task">Task for <span id="todo-selected-date">today</span></label>
+                            <input class="todo-input" type="text" id="todo-task" placeholder="e.g. Sketch landing page" autocomplete="off" maxlength="120" required>
+
+                            <div class="todo-pickers">
+                                <div class="todo-field">
+                                    <span class="todo-field-label">Emoji</span>
+                                    <div class="todo-emoji-row" id="todo-emoji-row" role="radiogroup" aria-label="Emoji">
+                                        <button type="button" class="todo-emoji is-active" data-emoji="📝" aria-label="Note">📝</button>
+                                        <button type="button" class="todo-emoji" data-emoji="💡" aria-label="Idea">💡</button>
+                                        <button type="button" class="todo-emoji" data-emoji="⭐" aria-label="Star">⭐</button>
+                                        <button type="button" class="todo-emoji" data-emoji="🔥" aria-label="Urgent">🔥</button>
+                                        <button type="button" class="todo-emoji" data-emoji="🎯" aria-label="Goal">🎯</button>
+                                        <button type="button" class="todo-emoji" data-emoji="❤️" aria-label="Heart">❤️</button>
+                                        <button type="button" class="todo-emoji" data-emoji="🚀" aria-label="Launch">🚀</button>
+                                        <button type="button" class="todo-emoji" data-emoji="☕" aria-label="Break">☕</button>
+                                    </div>
+                                </div>
+
+                                <div class="todo-field">
+                                    <span class="todo-field-label">Priority</span>
+                                    <div class="todo-priority-row" id="todo-priority-row" role="radiogroup" aria-label="Priority">
+                                        <button type="button" class="todo-priority" data-priority="low" aria-label="Low priority">🔥</button>
+                                        <button type="button" class="todo-priority is-active" data-priority="medium" aria-label="Medium priority">🔥🔥</button>
+                                        <button type="button" class="todo-priority" data-priority="high" aria-label="High priority">🔥🔥🔥</button>
+                                    </div>
+                                </div>
+
+                                <div class="todo-field">
+                                    <span class="todo-field-label">Time</span>
+                                    <div class="todo-time-row" id="todo-time-row" role="radiogroup" aria-label="Time">
+                                        <button type="button" class="todo-time is-active" data-time="">All day</button>
+                                        <button type="button" class="todo-time" data-time="09:00">9 AM</button>
+                                        <button type="button" class="todo-time" data-time="12:00">12 PM</button>
+                                        <button type="button" class="todo-time" data-time="15:00">3 PM</button>
+                                        <button type="button" class="todo-time" data-time="18:00">6 PM</button>
+                                        <button type="button" class="todo-time" data-time="21:00">9 PM</button>
+                                        <label class="todo-time todo-time--custom" aria-label="Pick a custom time">
+                                            <span class="todo-time-label">Custom</span>
+                                            <input type="time" class="todo-time-native" id="todo-time-native" tabindex="-1" aria-label="Pick a custom time">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary todo-add" type="submit">Add</button>
+                        </form>
+                    </div>
+
+                    <div class="todo-list-wrap">
+                        <div class="todo-list-head">
+                            <h3>Your tasks</h3>
+                            <span class="todo-count" id="todo-count"></span>
+                        </div>
+                        <div class="todo-groups" id="todo-list" aria-live="polite"></div>
+                        <p class="todo-empty" id="todo-empty">No tasks yet — pick a date and add one!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer with fun fact ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-funfact reveal">
+                <span class="spark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/>
+                    </svg>
+                </span>
+                <p>Fun fact: I've visited 12 national parks so far — and I'm quietly plotting the next dozen.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Jiali Chen · Made with warmth and too much coffee.</p>
+                <div class="footer-socials">
+                    <a href="contact.html" aria-label="Email me">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-10 6L2 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.16c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js?v=7"></script>
+</body>
+</html>
